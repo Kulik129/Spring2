@@ -29,4 +29,8 @@ public class IssueService {
         issueRepository.save(issue);
         return issue;
     }
+
+    public Issue getById(long id) {
+        return issueRepository.getIssueById(id);
+    }
 }
