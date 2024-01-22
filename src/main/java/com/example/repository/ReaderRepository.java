@@ -31,4 +31,13 @@ public class ReaderRepository {
     public void addReader(Reader reader) {
         readers.add(reader);
     }
+
+    public void deleteReader(long id) {
+        Reader reader = getReaderById(id);
+        readers.remove(reader);
+    }
+
+    public List<Reader> getReaders() {
+        return readers;
+    }
 }
