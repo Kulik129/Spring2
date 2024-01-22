@@ -23,11 +23,25 @@ public class BookRepository {
                 new Book("Мертвые души"),
                 new Book("Чистый код"),
                 new Book("Грокаем алгоритмы")
+
         ));
     }
 
     public Book getBookById(long id) {
         return books.stream().filter(it -> Objects.equals(it.getId(), id))
                 .findFirst().orElse(null);
+    }
+
+    public void deleteBook(long id) {
+        Book book = getBookById(id);
+        books.remove(book);
+    }
+
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
+    public List<Book> getBooks() {
+        return books;
     }
 }

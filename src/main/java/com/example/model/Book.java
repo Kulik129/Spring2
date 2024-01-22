@@ -11,6 +11,7 @@ public class Book {
     private final String name;
 
     public Book(String name) {
-        this(sequence++, name);
+        this.id = sequence++;
+        this.name = name;
     }
 }
