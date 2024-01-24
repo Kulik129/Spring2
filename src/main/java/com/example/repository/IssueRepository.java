@@ -24,4 +24,8 @@ public class IssueRepository {
                 .filter(it -> Objects.equals(it.getId(), id))
                 .findFirst().orElse(null);
     }
+
+    public List<Issue> allIssue() {
+        return issues;
+    }
 }

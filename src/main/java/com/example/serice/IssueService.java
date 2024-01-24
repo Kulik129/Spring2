@@ -8,6 +8,7 @@ import com.example.repository.ReaderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -32,5 +33,9 @@ public class IssueService {
 
     public Issue getById(long id) {
         return issueRepository.getIssueById(id);
+    }
+
+    public List<Issue> getAllIssue() {
+        return issueRepository.allIssue();
     }
 }

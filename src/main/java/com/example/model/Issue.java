@@ -9,10 +9,10 @@ public class Issue {
     private static long sequence = 1L;
 
 
-    private final long id;
-    private final long bookId;
-    private final long readerId;
-    private final LocalDateTime timestamp;
+    private long id;
+    private long bookId;
+    private long readerId;
+    private LocalDateTime timestamp;
 
     public Issue(long bookId, long readerId) {
         this.id = sequence++;
