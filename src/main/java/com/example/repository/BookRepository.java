@@ -38,6 +38,7 @@ public class BookRepository {
     }
 
     public void addBook(Book book) {
+        book.setId(books.size() + 1);
         books.add(book);
     }
 

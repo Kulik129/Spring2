@@ -29,6 +29,7 @@ public class ReaderRepository {
     }
 
     public void addReader(Reader reader) {
+        reader.setId(readers.size() + 1);
         readers.add(reader);
     }
 
