@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Books:</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    <tr th:each="book: ${books}">
+        <td th:text="${book.id}"></td>
+        <td ><a th:href="@{/book/{id}(id=${book.id})}" th:text="${book.name}"></a></td>
+    </tr>
+</table>
+
+</body>
+</html>

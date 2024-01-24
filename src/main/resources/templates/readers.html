@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Readers</title>
+</head>
+<body>
+<h1>Readers:</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+  <tr th:each="reader: ${readers}">
+    <td th:text="${reader.id}"></td>
+    <td ><a th:href="@{/reader/{id}(id=${reader.id})}" th:text="${reader.name}"></a></td>
+  </tr>
+</table>
+</body>
+</html>
