@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -14,20 +15,22 @@ public class BookService {
     private final BookRepository bookRepository;
 
     public void deleteById(long id) {
-        Book book = bookRepository.getBookById(id);
-        if (book == null) {
+        Optional<Book> book = bookRepository.findById(id);
+        if (!book.isPresent()) {
             throw new NoSuchElementException("Не найдена книга с ID \"" + id + "\"");
         } else {
-            bookRepository.deleteBook(id);
+            bookRepository.deleteById(id);
         }
     }
-
     public List<Book> addBook(Book book) {
-        bookRepository.addBook(book);
-        return bookRepository.getBooks();
+        bookRepository.save(book);
+        return bookRepository.findAll();
     }
 
     public List<Book> allBooks() {
-        return bookRepository.getBooks();
+        return bookRepository.findAll();
+    }
+    public Optional<Book> getBook(long id) {
+        return bookRepository.findById(id);
     }
 }

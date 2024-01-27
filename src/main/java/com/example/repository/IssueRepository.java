@@ -1,31 +1,10 @@
 package com.example.repository;
 
 import com.example.model.Issue;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 @Repository
-public class IssueRepository {
-    private final List<Issue> issues;
+public interface IssueRepository extends JpaRepository<Issue, Long> {
 
-    public IssueRepository() {
-        this.issues = new ArrayList<>();
-    }
-
-    public void save(Issue issue) {
-        issues.add(issue);
-    }
-
-    public Issue getIssueById(long id) {
-        return issues.stream()
-                .filter(it -> Objects.equals(it.getId(), id))
-                .findFirst().orElse(null);
-    }
-
-    public List<Issue> allIssue() {
-        return issues;
-    }
 }

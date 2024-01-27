@@ -17,5 +17,4 @@ public class BookControllerUi {
         model.addAttribute("books", bookService.allBooks());
         return "books";
     }
-
 }

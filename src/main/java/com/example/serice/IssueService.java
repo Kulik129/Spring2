@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,10 +20,12 @@ public class IssueService {
     private final IssueRepository issueRepository;
 
     public Issue issue(IssueRequest request) {
-        if (bookRepository.getBookById(request.getBookId()) == null) {
+
+
+        if (bookRepository.findById(request.getBookId()) == null) {
             throw new NoSuchElementException("Не найдена книга с ID \"" + request.getBookId() + "\"");
         }
-        if (readerRepository.getReaderById(request.getReaderId()) == null) {
+        if (readerRepository.findById(request.getReaderId()) == null) {
             throw new NoSuchElementException("Не найден читатель с ID \"" + request.getReaderId() + "\"");
         }
 
@@ -31,11 +34,11 @@ public class IssueService {
         return issue;
     }
 
-    public Issue getById(long id) {
-        return issueRepository.getIssueById(id);
+    public Optional<Issue> getById(long id) {
+        return issueRepository.findById(id);
     }
 
     public List<Issue> getAllIssue() {
-        return issueRepository.allIssue();
+        return issueRepository.findAll();
     }
 }

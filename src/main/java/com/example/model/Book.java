@@ -1,16 +1,22 @@
 package com.example.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Book {
-    public static long sequence = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private final String name;
+    private String name;
 
     public Book(String name) {
-        this.id = sequence++;
         this.name = name;
     }
 }
