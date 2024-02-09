@@ -1,5 +1,6 @@
 package com.example.serice;
 
+import com.example.aspect.ExecutionTime;
 import com.example.model.Book;
 import com.example.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+@ExecutionTime
 @Service
 @RequiredArgsConstructor
 public class BookService {
