@@ -32,11 +32,14 @@ public class IssuerControllers {
 
     @GetMapping("/{id}")
     public ResponseEntity<Issue> issueId(@PathVariable long id) {
-        try {
-            service.getById(id);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-        return ResponseEntity.status(HttpStatus.OK).build();
+//        try {
+//            service.getById(id);
+//        } catch (Exception e) {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+//        }
+//        return ResponseEntity.status(HttpStatus.OK).build();
+        return service.getById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(()-> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 }

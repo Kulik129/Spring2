@@ -7,5 +7,5 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.METHOD, ElementType.TYPE}) // чтобы ставить над классами и над методами
 @Retention(RetentionPolicy.RUNTIME) // чтобы антотация была доступна в runtime
-public @interface ExecutionTime {
+public @interface Timer {
 }

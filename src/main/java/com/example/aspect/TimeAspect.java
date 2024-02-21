@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class TimeAspect {
-    @Pointcut("within(@com.example.aspect.ExecutionTime *)")
+    @Pointcut("within(@com.example.aspect.Timer *)")
     public void beanAnnotated() {
 
     }
 
-    @Pointcut("@annotation(com.example.aspect.ExecutionTime)")
+    @Pointcut("@annotation(com.example.aspect.Timer)")
     public void methodAnnotated() {
 
     }

@@ -22,7 +22,7 @@ public class ReaderController {
         try {
             readerService.deleteById(id);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         return ResponseEntity.status(HttpStatus.OK).body(readerService.all());
     }
